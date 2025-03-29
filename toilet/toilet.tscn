@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://bj1yv0uyjaovq"]
+
+[ext_resource type="ArrayMesh" uid="uid://ctdyvq8cfqlft" path="res://toilet/toilet.obj" id="1_cgo0d"]
+[ext_resource type="Script" uid="uid://bbgbe1srs8vr0" path="res://toilet/toilet.gd" id="1_gwshn"]
+[ext_resource type="Material" uid="uid://de2ofmppfgwoa" path="res://toilet/toilet_material.tres" id="2_gwshn"]
+[ext_resource type="Script" uid="uid://c8jd0fgfiqwrf" path="res://placement_helper.gd" id="4_8h5kr"]
+[ext_resource type="AudioStream" uid="uid://bdaer6r3w4aew" path="res://toilet/press.ogg" id="5_drsjy"]
+[ext_resource type="AudioStream" uid="uid://c0ag6m2oe6fwo" path="res://toilet/release.ogg" id="6_xomdf"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8h5kr"]
+points = PackedVector3Array(-1.43236, -0.202257, -1.43236, -1.43236, -0.202257, 1.43236, -0.959016, 0.27196, -0.959016, 1.43207, -0.202257, -1.43236, 1.43207, -0.202257, 1.43236, -0.959016, 0.27196, 0.958455, 0.958455, 0.27196, -0.959016, 0.958455, 0.27196, 0.958455)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gwshn"]
+size = Vector3(2.00372, 0.16843, 2.00427)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8h5kr"]
+size = Vector3(1.97803, 1.34558, 1.9679)
+
+[node name="Toilet" type="StaticBody3D"]
+script = ExtResource("1_gwshn")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+material_override = ExtResource("2_gwshn")
+mesh = ExtResource("1_cgo0d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_8h5kr")
+
+[node name="Button" type="Area3D" parent="."]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000213623, 0.284529, -0.00115967)
+shape = SubResource("BoxShape3D_gwshn")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.873106, 0)
+collision_layer = 8
+collision_mask = 8
+monitoring = false
+script = ExtResource("4_8h5kr")
+metadata/_custom_type_script = "uid://c8jd0fgfiqwrf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_8h5kr")
+
+[node name="press" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_drsjy")
+volume_db = 6.0
+max_db = 6.0
+
+[node name="release" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_xomdf")
+volume_db = 6.0
+max_db = 6.0
+
+[connection signal="body_entered" from="Button" to="." method="_on_button_body_entered"]
+[connection signal="body_exited" from="Button" to="." method="_on_button_body_exited"]

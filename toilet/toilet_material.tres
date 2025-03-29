@@ -1,0 +1,58 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://de2ofmppfgwoa"]
+
+[ext_resource type="Texture2D" uid="uid://bcqb13elfkd0g" path="res://material/noise.png" id="1_44f3i"]
+
+[sub_resource type="Shader" id="Shader_1dp0t"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D noise_texture;
+uniform float depression : hint_range(0., 1.);
+
+void vertex() {
+	if (UV.x < 0.5) {
+		VERTEX.y *= 1. - depression * 0.65;
+		VERTEX.y += depression * 0.15;
+	}
+}
+
+void fragment() {
+	vec2 texture_sample_location = UV;
+	float normal_strength = 1.;
+
+	METALLIC = 0.;
+	ROUGHNESS = 0.6;
+	if (UV.x > 0.5) {
+		METALLIC = 1.;
+		texture_sample_location = UV * vec2(30., 1.);
+	} else {
+		ROUGHNESS = 0.4;
+		texture_sample_location = UV * 15.;
+	}
+	
+	vec4 texture_sample = texture(noise_texture, texture_sample_location);
+
+	ALBEDO = vec3(0.75, 0.25, 0.15);
+	EMISSION = vec3(0.);
+	if (UV.x > 0.5) {
+		ALBEDO = vec3(texture_sample.z * 0.2 + 0.4);
+		normal_strength = 0.5;
+	} else {
+		vec2 offset_from_center_of_circle = UV - vec2(0.25, 0.25);
+		float gradient = (0.0625 - dot(offset_from_center_of_circle, offset_from_center_of_circle));
+		EMISSION = gradient * depression * vec3(4.5, 3., 2.);
+		ALBEDO -= abs(gradient) * (1. - depression) * vec3(3., 2., 1.);
+		normal_strength = texture_sample.z * texture_sample.z;
+		normal_strength *= normal_strength * -3.;
+		ALBEDO -= normal_strength * normal_strength * 0.125 * (1. - depression * 1.5);
+	}
+	NORMAL_MAP = vec3(texture_sample.xy * normal_strength, 0.0);
+}
+"
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_1dp0t")
+shader_parameter/noise_texture = ExtResource("1_44f3i")
+shader_parameter/depression = 0.0

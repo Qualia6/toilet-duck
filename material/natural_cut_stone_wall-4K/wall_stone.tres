@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://c0f73o1248g3a"]
+
+[ext_resource type="Texture2D" uid="uid://dsf2mk3prdmvk" path="res://material/natural_cut_stone_wall-4K/4K-wall_stone_8-diffuse.jpg" id="1_isbdn"]
+[ext_resource type="Texture2D" uid="uid://des7vbhpctrds" path="res://material/natural_cut_stone_wall-4K/4K-wall_stone_8-ao.jpg" id="2_aka56"]
+[ext_resource type="Texture2D" uid="uid://blk30t7n4ka5n" path="res://material/natural_cut_stone_wall-4K/4K-wall_stone_8-specular.jpg" id="3_swkh4"]
+[ext_resource type="Texture2D" uid="uid://b053omiig86ds" path="res://material/natural_cut_stone_wall-4K/4K-wall_stone_8-normal.jpg" id="4_3ig4y"]
+
+[resource]
+albedo_texture = ExtResource("1_isbdn")
+metallic = 1.0
+metallic_texture = ExtResource("3_swkh4")
+roughness = 0.94
+normal_enabled = true
+normal_texture = ExtResource("4_3ig4y")
+ao_enabled = true
+ao_texture = ExtResource("2_aka56")
+uv1_scale = Vector3(99.8, 99.8, 99.8)
+grow_amount = -16.0

@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://08s77m3c05lb"]
+
+[ext_resource type="Material" uid="uid://nbhc7765p7gp" path="res://couch/couch_material.tres" id="1_e3j1l"]
+[ext_resource type="ArrayMesh" uid="uid://b2iy3lvewq1rv" path="res://couch/couch.obj" id="1_v8p6y"]
+[ext_resource type="Script" uid="uid://c8jd0fgfiqwrf" path="res://placement_helper.gd" id="3_qdw0q"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qdw0q"]
+bounce = 0.2
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e3j1l"]
+points = PackedVector3Array(1, 0.565059, 3.15996, 1, -0.49134, 3.15996, 1, 0.565059, -3.16733, -1, 0.565059, 2.97044, -1, -0.49134, 2.97044, 1, -0.49134, -3.16733, -1, 0.565059, -2.97781, -1, -0.49134, -2.97781)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qdw0q"]
+points = PackedVector3Array(1.03151, 1.10935, -2.70733, 1.03151, -0.501428, -2.70733, 0.977916, 1.10935, -3.21676, -0.927865, 1.10935, -2.48313, -0.927865, -0.501428, -2.48313, 0.977916, -0.501428, -3.21676, -0.981258, 1.10935, -2.99264, -0.981258, -0.501428, -2.99264)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_18or6"]
+points = PackedVector3Array(1.03151, 1.10935, 2.71836, 1.03151, -0.501428, 2.71836, -0.927865, 1.10935, 2.49424, 0.977916, 1.10935, 3.22787, 0.977916, -0.501428, 3.22787, -0.927865, -0.501428, 2.49424, -0.981258, 1.10935, 3.00367, -0.981258, -0.501428, 3.00367)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fxj8f"]
+points = PackedVector3Array(-1.00005, 0.561405, -2.9904, -1.00216, 1.24344, -2.9904, 0.129709, 0.561405, -2.9904, -1.00005, 0.561405, 2.98982, -0.241475, 1.92575, -2.42253, 0.0293651, 1.23917, -2.9904, -1.00216, 1.24344, 2.98982, -1.00427, 1.92575, -2.42253, 0.129709, 0.561405, 2.98982, -0.241475, 1.92575, 2.42194, 0.0293651, 1.23917, 2.98982, -1.00427, 1.92575, 2.42194)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_18or6"]
+height = 1.3054
+radius = 0.708008
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fxj8f"]
+height = 1.64391
+radius = 0.708008
+
+[node name="Couch" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_qdw0q")
+
+[node name="Couch" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_e3j1l")
+mesh = ExtResource("1_v8p6y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_e3j1l")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_qdw0q")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_18or6")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_fxj8f")
+
+[node name="PlacementHelper" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.393515, 0.795337, 1.8672)
+script = ExtResource("3_qdw0q")
+copy_rotation = true
+metadata/_custom_type_script = "uid://c8jd0fgfiqwrf"
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="PlacementHelper"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.0328751, -0.00372767, -0.357314)
+shape = SubResource("CylinderShape3D_18or6")
+
+[node name="PlacementHelper2" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.393515, 0.795337, -1.82363)
+script = ExtResource("3_qdw0q")
+copy_rotation = true
+metadata/_custom_type_script = "uid://c8jd0fgfiqwrf"
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="PlacementHelper2"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.0328751, -0.00372767, -0.357314)
+shape = SubResource("CylinderShape3D_18or6")
+
+[node name="PlacementHelper3" type="Area3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.393515, 0.795337, 0.0065937)
+script = ExtResource("3_qdw0q")
+copy_rotation = true
+metadata/_custom_type_script = "uid://c8jd0fgfiqwrf"
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="PlacementHelper3"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.0390868, 0.00659376, -0.357314)
+shape = SubResource("CylinderShape3D_fxj8f")

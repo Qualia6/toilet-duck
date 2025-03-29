@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dw0v0pv46vbxw"
+path.s3tc="res://.godot/imported/spinny_wowowowow.png-1c880117469f571e92b21d0b4d54556e.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "f04f559f7c8fb7a9584bf47c2b5f7e28"
+}
+
+[deps]
+
+source_file="res://spinny/spinny_wowowowow.png"
+dest_files=["res://.godot/imported/spinny_wowowowow.png-1c880117469f571e92b21d0b4d54556e.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

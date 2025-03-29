@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dbkkcibqpm2eh"]
+
+[ext_resource type="Texture2D" uid="uid://ekf5if8or638" path="res://rubber_duck_obj/T_rubber_duck_BaseColor.tga" id="1_uqq2y"]
+[ext_resource type="Texture2D" uid="uid://cw4h5cd6d7kso" path="res://rubber_duck_obj/T_rubber_duck_AO.tga" id="2_8b6lo"]
+[ext_resource type="Texture2D" uid="uid://blscxusqbq3lw" path="res://rubber_duck_obj/T_rubber_duck_Normal.tga" id="3_docxn"]
+[ext_resource type="Texture2D" uid="uid://d2dtx0winfvyp" path="res://rubber_duck_obj/T_rubber_duck_Roughness.tga" id="4_aftmf"]
+
+[resource]
+albedo_texture = ExtResource("1_uqq2y")
+roughness_texture = ExtResource("4_aftmf")
+normal_enabled = true
+normal_texture = ExtResource("3_docxn")
+ao_enabled = true
+ao_texture = ExtResource("2_8b6lo")

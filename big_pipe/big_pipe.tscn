@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxhjxt2tl4mwg"]
+
+[ext_resource type="ArrayMesh" uid="uid://dgw0a3pthen5y" path="res://big_pipe/big_pipe.obj" id="1_s4cn4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38yse"]
+albedo_color = Color(0.290196, 0.996078, 0.301961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lut4n"]
+size = Vector3(4.99957, 0.251709, 0.837891)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s4cn4"]
+height = 4.66089
+radius = 0.868164
+
+[node name="BigPipe" type="StaticBody3D"]
+
+[node name="BigPipe" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_38yse")
+mesh = ExtResource("1_s4cn4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49673, -0.870483, 0)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49673, 0.871812, 0)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.49673, 0.000664115, -0.890946)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.49673, 0.0133594, 0.882462)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, -1.49673, 0.603114, 0.630734)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, -1.49673, -0.607442, -0.63639)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, -0.707107, 0, 0.707107, -0.707107, -1.49673, 0.611599, -0.627905)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.707107, -0.707107, 0, 0.707107, -0.707107, -1.49673, -0.613099, 0.625077)
+shape = SubResource("BoxShape3D_lut4n")
+
+[node name="acceleration" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96976, 0, 0)
+monitoring = false
+monitorable = false
+gravity_space_override = 3
+gravity_point = true
+gravity_point_center = Vector3(0, 0, 0)
+gravity_direction = Vector3(0, 0, 0)
+gravity = -20.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="acceleration"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4.2965, -7.17193e-08, 0)
+shape = SubResource("CylinderShape3D_s4cn4")

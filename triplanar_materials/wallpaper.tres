@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cdrcho44n67s5"]
+
+[ext_resource type="Shader" uid="uid://cs5j83sqo85f6" path="res://triplanar_materials/wallpaper.gdshader" id="1_vxacg"]
+[ext_resource type="Texture2D" uid="uid://b8b7qfwckc7qr" path="res://triplanar_materials/wallpaper_normal_roughness.jpg" id="2_5dhi6"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vxacg")
+shader_parameter/albedo = Color(0.926561, 0.861664, 0.745047, 1)
+shader_parameter/specular = 0.96
+shader_parameter/metallic = 0.0
+shader_parameter/texture_normal = ExtResource("2_5dhi6")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.8, 0.8, 0.8)
+shader_parameter/uv1_offset = Vector3(1, 0, 0)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1a2rh3jrycmk"]
+
+[ext_resource type="Script" uid="uid://df2gih7qye3s3" path="res://water/water.gd" id="1_f64qc"]
+
+[node name="area" type="Area3D"]
+monitorable = false
+gravity_space_override = 3
+gravity_point_center = Vector3(0, 2, -6)
+gravity_direction = Vector3(0, 2, -6)
+gravity = 1.5
+linear_damp_space_override = 3
+linear_damp = 1.0
+script = ExtResource("1_f64qc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcxrrsovbt3do"]
+
+[ext_resource type="Script" uid="uid://cajyf1eftqpo0" path="res://button/button.gd" id="1_n4tde"]
+[ext_resource type="ArrayMesh" uid="uid://bv6hkiknqgyek" path="res://button/skibidi.obj" id="2_h27qj"]
+[ext_resource type="Material" uid="uid://dmwi4kbmq2y40" path="res://button/skibidi.tres" id="2_opf05"]
+[ext_resource type="Script" uid="uid://c8jd0fgfiqwrf" path="res://placement_helper.gd" id="4_38736"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lt4la"]
+size = Vector3(0.321045, 0.596313, 0.165833)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4amfo"]
+size = Vector3(0.321045, 0.186585, 0.35447)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2kp8h"]
+size = Vector3(0.0447693, 0.224884, 0.359531)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lj86r"]
+size = Vector3(0.196957, 0.221817, 0.0438472)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7rpu"]
+size = Vector3(0.178867, 0.269417, 0.388575)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x4vop"]
+size = Vector3(0.474182, 0.801941, 0.720764)
+
+[node name="button" type="Node3D"]
+script = ExtResource("1_n4tde")
+
+[node name="Skibidi" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+material_override = ExtResource("2_opf05")
+mesh = ExtResource("2_h27qj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145264, 0.330505, -0.25589)
+shape = SubResource("BoxShape3D_lt4la")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0145264, 0.0107726, -0.0312529)
+shape = SubResource("BoxShape3D_4amfo")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.975577, -0.219659, 0, 0.219659, 0.975577, 0, 0, 0, 1, -0.113915, 0.177917, -0.00337968)
+shape = SubResource("BoxShape3D_2kp8h")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.964626, 0.263621, 0, -0.263621, 0.964626, 0, 0, 0, 1, 0.0785716, 0.181859, -0.0019207)
+shape = SubResource("BoxShape3D_2kp8h")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.949146, -0.314837, 0, 0.314837, 0.949146, -0.0116191, 0.183021, 0.166625)
+shape = SubResource("BoxShape3D_lj86r")
+
+[node name="Button" type="Area3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+transform = Transform3D(1, 0, 0, 0, 0.999935, -0.0113968, 0, 0.0113968, 0.999935, -0.0221349, 0.226375, -0.0400964)
+shape = SubResource("BoxShape3D_d7rpu")
+
+[node name="PlacementHelper" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00598514, 0.943, 0)
+script = ExtResource("4_38736")
+copy_rotation = true
+metadata/_custom_type_script = "uid://c8jd0fgfiqwrf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlacementHelper"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0315328, -0.114319, 0.00985718)
+shape = SubResource("BoxShape3D_x4vop")
+
+[connection signal="body_entered" from="Button" to="." method="_on_button_body_entered"]
+[connection signal="body_exited" from="Button" to="." method="_on_button_body_exited"]

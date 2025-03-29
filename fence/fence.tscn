@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3ummyu7h0cs1"]
+
+[ext_resource type="Texture2D" uid="uid://be2tqe40dinmc" path="res://fence/Metal-Fence-albedo.png" id="1_5gl7b"]
+[ext_resource type="Texture2D" uid="uid://34bpdudhh1bx" path="res://fence/Metal-Fence-normal.jpg" id="2_vm2af"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c0f5l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_506p1"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_5gl7b")
+metallic = 1.0
+metallic_specular = 0.43
+roughness = 0.45
+normal_enabled = true
+normal_texture = ExtResource("2_vm2af")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4dn01"]
+size = Vector3(3.82864, 3.51353, 0.0762329)
+
+[node name="fence" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 1.90845, 0)
+mesh = SubResource("PlaneMesh_c0f5l")
+surface_material_override/0 = SubResource("StandardMaterial3D_506p1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00593567, 1.75926, 0.00302124)
+shape = SubResource("BoxShape3D_4dn01")

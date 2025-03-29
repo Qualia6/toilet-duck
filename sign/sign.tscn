@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://naudw8kwg75o"]
+
+[ext_resource type="Material" uid="uid://d0n00odu7q6sx" path="res://material/half_wood/step.tres" id="1_nwe73"]
+[ext_resource type="ArrayMesh" uid="uid://d2llow44c453i" path="res://sign/sign.obj" id="2_c6gx8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83qa5"]
+size = Vector3(0.191406, 0.971436, 0.939514)
+
+[node name="Sign" type="StaticBody3D"]
+
+[node name="Sign" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_nwe73")
+mesh = ExtResource("2_c6gx8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00292969, 0.484497, 0.00595093)
+shape = SubResource("BoxShape3D_83qa5")

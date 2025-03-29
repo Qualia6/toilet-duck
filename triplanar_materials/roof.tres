@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dcr78a6h80b8e"]
+
+[ext_resource type="Shader" uid="uid://vev3bjr4qi3c" path="res://triplanar_materials/roof.gdshader" id="1_ftogh"]
+[ext_resource type="Texture2D" uid="uid://dk8xlrim6w5q8" path="res://triplanar_materials/roof_normal_ao.jpg" id="1_uj3gv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ftogh")
+shader_parameter/albedo = Color(0.539433, 0.364997, 0.341339, 1)
+shader_parameter/roughness = 0.579
+shader_parameter/specular = 0.47
+shader_parameter/metallic = 0.53
+shader_parameter/texture_normal = ExtResource("1_uj3gv")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.15, 0.15, 0.15)
+shader_parameter/uv1_offset = Vector3(1, 0, 0)

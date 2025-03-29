@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://igkirq3r2n0p"]
+
+[ext_resource type="Script" uid="uid://bjui06maoamh5" path="res://die_upon_enter.gd" id="1_qyh01"]
+
+[node name="DieUponEnter" type="Area3D"]
+monitorable = false
+script = ExtResource("1_qyh01")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

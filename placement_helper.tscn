@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqhnf2ntqrtho"]
+
+[ext_resource type="Script" uid="uid://c8jd0fgfiqwrf" path="res://placement_helper.gd" id="1_ang7u"]
+
+[node name="PlacementHelper" type="Area3D"]
+collision_layer = 8
+collision_mask = 8
+monitoring = false
+script = ExtResource("1_ang7u")

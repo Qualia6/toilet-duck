@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqi8j5is5b7c2"
+path="res://.godot/imported/orange hit hard 10.ogg-de04650e11d9040d52a49a758d615c6e.oggvorbisstr"
+
+[deps]
+
+source_file="res://player/step_sounds/orange/orange hit hard 10.ogg"
+dest_files=["res://.godot/imported/orange hit hard 10.ogg-de04650e11d9040d52a49a758d615c6e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

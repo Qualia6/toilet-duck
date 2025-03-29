@@ -1,0 +1,118 @@
+[gd_scene load_steps=44 format=3 uid="uid://cwele0eokv2wx"]
+
+[ext_resource type="Script" uid="uid://qn43kg3ycguq" path="res://water/water_particles.gd" id="1_jplk0"]
+[ext_resource type="AudioStream" uid="uid://cgehfvbnlpn7u" path="res://water/splash_sounds/splash1.ogg" id="2_6j4jf"]
+[ext_resource type="AudioStream" uid="uid://byp0vpq56hex1" path="res://water/splash_sounds/splash2.ogg" id="3_vd5fm"]
+[ext_resource type="AudioStream" uid="uid://covpak2qmubst" path="res://water/splash_sounds/splash11.ogg" id="4_ug2cf"]
+[ext_resource type="AudioStream" uid="uid://bw6dnfbju2okv" path="res://water/splash_sounds/splash12.ogg" id="5_wxrmi"]
+[ext_resource type="AudioStream" uid="uid://cb1nrxuumosoa" path="res://water/splash_sounds/splash13.ogg" id="6_4ttao"]
+[ext_resource type="AudioStream" uid="uid://b5h4rf4es2g2d" path="res://water/splash_sounds/splash14.ogg" id="7_njuaq"]
+[ext_resource type="AudioStream" uid="uid://cy3g8hy1qa8t4" path="res://water/splash_sounds/splash15.ogg" id="8_82rd3"]
+[ext_resource type="AudioStream" uid="uid://d1buhvfiv2vi3" path="res://water/splash_sounds/splash16.ogg" id="9_3c3tc"]
+[ext_resource type="AudioStream" uid="uid://brrfwdgkrtfi2" path="res://water/splash_sounds/splash17.ogg" id="10_4ng7f"]
+[ext_resource type="AudioStream" uid="uid://d1mete88wbyc0" path="res://water/splash_sounds/splash18.ogg" id="11_qnht8"]
+[ext_resource type="AudioStream" uid="uid://1awaru1ahom8" path="res://water/splash_sounds/splash19.ogg" id="12_0fx81"]
+[ext_resource type="AudioStream" uid="uid://ct4b08prjir0q" path="res://water/splash_sounds/splash20.ogg" id="13_hmmf1"]
+[ext_resource type="AudioStream" uid="uid://cuje763hjdutb" path="res://water/splash_sounds/splash3.ogg" id="14_lkmfe"]
+[ext_resource type="AudioStream" uid="uid://yw1cdlf3pnrb" path="res://water/splash_sounds/splash21.ogg" id="15_gyxgh"]
+[ext_resource type="AudioStream" uid="uid://cv6ypn8j5mfvy" path="res://water/splash_sounds/splash22.ogg" id="16_pp2wc"]
+[ext_resource type="AudioStream" uid="uid://bnbu84st4scs5" path="res://water/splash_sounds/splash23.ogg" id="17_uegfq"]
+[ext_resource type="AudioStream" uid="uid://b3win8t8x63so" path="res://water/splash_sounds/splash24.ogg" id="18_f00eu"]
+[ext_resource type="AudioStream" uid="uid://drjxjoxod48ke" path="res://water/splash_sounds/splash25.ogg" id="19_ucsva"]
+[ext_resource type="AudioStream" uid="uid://6d6ieyn8q82t" path="res://water/splash_sounds/splash26.ogg" id="20_ps4ib"]
+[ext_resource type="AudioStream" uid="uid://u5rbk0a24fb1" path="res://water/splash_sounds/splash27.ogg" id="21_fix6t"]
+[ext_resource type="AudioStream" uid="uid://4hr62ka6vp75" path="res://water/splash_sounds/splash28.ogg" id="22_d8xds"]
+[ext_resource type="AudioStream" uid="uid://breycm5gt7l04" path="res://water/splash_sounds/splash29.ogg" id="23_e0t02"]
+[ext_resource type="AudioStream" uid="uid://epu8uwq1fjw5" path="res://water/splash_sounds/splash31.ogg" id="24_rmhsd"]
+[ext_resource type="AudioStream" uid="uid://bvgu734ktagye" path="res://water/splash_sounds/splash4.ogg" id="25_t2cqs"]
+[ext_resource type="AudioStream" uid="uid://d17wb085dbxhl" path="res://water/splash_sounds/splash32.ogg" id="26_5g7su"]
+[ext_resource type="AudioStream" uid="uid://cw3drqnm4nimj" path="res://water/splash_sounds/splash33.ogg" id="27_wkmag"]
+[ext_resource type="AudioStream" uid="uid://cqfvagbsge1fq" path="res://water/splash_sounds/splash34.ogg" id="28_tewxd"]
+[ext_resource type="AudioStream" uid="uid://5ktjk336sdoi" path="res://water/splash_sounds/splash35.ogg" id="29_7c2qc"]
+[ext_resource type="AudioStream" uid="uid://bhpdq0mln4ue2" path="res://water/splash_sounds/splash36.ogg" id="30_l08ia"]
+[ext_resource type="AudioStream" uid="uid://bmrr7yk72tws3" path="res://water/splash_sounds/splash37.ogg" id="31_jh1rx"]
+[ext_resource type="AudioStream" uid="uid://ckadlkhd1n0xq" path="res://water/splash_sounds/splash38.ogg" id="32_xum7h"]
+[ext_resource type="AudioStream" uid="uid://dj5pw20rjb2oh" path="res://water/splash_sounds/splash30.ogg" id="33_m7cx0"]
+[ext_resource type="AudioStream" uid="uid://tj251pcxwfo2" path="res://water/splash_sounds/splash5.ogg" id="34_f16u5"]
+[ext_resource type="AudioStream" uid="uid://cuvyp22xhll5i" path="res://water/splash_sounds/splash6.ogg" id="35_n16mx"]
+[ext_resource type="AudioStream" uid="uid://3vjngjxrwkgl" path="res://water/splash_sounds/splash7.ogg" id="36_hv50k"]
+[ext_resource type="AudioStream" uid="uid://ctogu251c3ao7" path="res://water/splash_sounds/splash8.ogg" id="37_34wlb"]
+[ext_resource type="AudioStream" uid="uid://df4nhpoxs2ib0" path="res://water/splash_sounds/splash9.ogg" id="38_irsuq"]
+[ext_resource type="AudioStream" uid="uid://ck02fk3y4lmto" path="res://water/splash_sounds/splash10.ogg" id="39_pixu2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y6cjd"]
+lifetime_randomness = 0.5
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, 1, 0)
+spread = 60.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+scale_min = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35lfq"]
+transparency = 1
+albedo_color = Color(0.292548, 0.54636, 0.949405, 0.415686)
+roughness = 0.25
+
+[sub_resource type="SphereMesh" id="SphereMesh_bnlki"]
+material = SubResource("StandardMaterial3D_35lfq")
+radius = 0.2
+height = 0.4
+radial_segments = 5
+rings = 3
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k36pk"]
+streams_count = 38
+stream_0/stream = ExtResource("2_6j4jf")
+stream_1/stream = ExtResource("3_vd5fm")
+stream_2/stream = ExtResource("14_lkmfe")
+stream_3/stream = ExtResource("25_t2cqs")
+stream_4/stream = ExtResource("34_f16u5")
+stream_5/stream = ExtResource("35_n16mx")
+stream_6/stream = ExtResource("36_hv50k")
+stream_7/stream = ExtResource("37_34wlb")
+stream_8/stream = ExtResource("38_irsuq")
+stream_9/stream = ExtResource("39_pixu2")
+stream_10/stream = ExtResource("4_ug2cf")
+stream_11/stream = ExtResource("5_wxrmi")
+stream_12/stream = ExtResource("6_4ttao")
+stream_13/stream = ExtResource("7_njuaq")
+stream_14/stream = ExtResource("8_82rd3")
+stream_15/stream = ExtResource("9_3c3tc")
+stream_16/stream = ExtResource("10_4ng7f")
+stream_17/stream = ExtResource("11_qnht8")
+stream_18/stream = ExtResource("12_0fx81")
+stream_19/stream = ExtResource("13_hmmf1")
+stream_20/stream = ExtResource("15_gyxgh")
+stream_21/stream = ExtResource("16_pp2wc")
+stream_22/stream = ExtResource("17_uegfq")
+stream_23/stream = ExtResource("18_f00eu")
+stream_24/stream = ExtResource("19_ucsva")
+stream_25/stream = ExtResource("20_ps4ib")
+stream_26/stream = ExtResource("21_fix6t")
+stream_27/stream = ExtResource("22_d8xds")
+stream_28/stream = ExtResource("23_e0t02")
+stream_29/stream = ExtResource("24_rmhsd")
+stream_30/stream = ExtResource("26_5g7su")
+stream_31/stream = ExtResource("27_wkmag")
+stream_32/stream = ExtResource("28_tewxd")
+stream_33/stream = ExtResource("29_7c2qc")
+stream_34/stream = ExtResource("30_l08ia")
+stream_35/stream = ExtResource("31_jh1rx")
+stream_36/stream = ExtResource("32_xum7h")
+stream_37/stream = ExtResource("33_m7cx0")
+
+[node name="WaterParticles" type="GPUParticles3D"]
+emitting = false
+amount = 36
+lifetime = 2.25
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_y6cjd")
+draw_pass_1 = SubResource("SphereMesh_bnlki")
+script = ExtResource("1_jplk0")
+
+[node name="splash_sound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_k36pk")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
