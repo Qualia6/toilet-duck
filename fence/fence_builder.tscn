@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://blgoaqb2g4b1y"]
+
+[ext_resource type="Script" uid="uid://cj52x1otm1bak" path="res://fence/fence_builder.gd" id="1_2aoo5"]
+[ext_resource type="PackedScene" uid="uid://b3ummyu7h0cs1" path="res://fence/fence.tscn" id="2_m6ls7"]
+
+[sub_resource type="Curve3D" id="Curve3D_myxof"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+up_vector_enabled = false
+
+[node name="Path3D" type="Path3D"]
+curve = SubResource("Curve3D_myxof")
+script = ExtResource("1_2aoo5")
+distance = 3.0
+fence_scene = ExtResource("2_m6ls7")

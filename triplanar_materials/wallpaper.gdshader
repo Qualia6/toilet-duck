@@ -47,7 +47,7 @@ void fragment() {
 	ALBEDO = albedo.rgb;
 	METALLIC = metallic;
 	SPECULAR = specular;
-	
+
 	vec4 sample = triplanar_texture(texture_normal, uv1_power_normal, uv1_triplanar_pos);
 
 	ROUGHNESS = sample.b;

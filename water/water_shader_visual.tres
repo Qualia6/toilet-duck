@@ -56,7 +56,7 @@ op_type = 1
 
 [resource]
 code = "shader_type spatial;
-render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
+render_mode blend_mix, depth_draw_never, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded;
 
 uniform sampler2D tex_frg_5;
 uniform sampler2D tex_frg_6;
@@ -131,6 +131,7 @@ void fragment() {
 
 }
 "
+modes/depth_draw = 2
 modes/cull = 2
 flags/unshaded = true
 nodes/fragment/0/position = Vector2(1160, 120)

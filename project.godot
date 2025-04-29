@@ -15,6 +15,11 @@ run/main_scene="uid://bnwbtpgp4hlpo"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/Quent/Downloads/recording.mp4.avi"
+movie_writer/fps=30
+
 [filesystem]
 
 import/blender/enabled=false

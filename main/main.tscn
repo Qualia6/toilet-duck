@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://bnwbtpgp4hlpo"]
+[gd_scene load_steps=104 format=3 uid="uid://bnwbtpgp4hlpo"]
 
 [ext_resource type="ArrayMesh" uid="uid://bol7w5cmbd74h" path="res://main/untitled.obj" id="1_n3o0a"]
 [ext_resource type="Texture2D" uid="uid://b3slvj4hndkwe" path="res://main/instructions/instructions1.png" id="1_piupu"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://cxhjxt2tl4mwg" path="res://big_pipe/big_pipe.tscn" id="23_oagth"]
 [ext_resource type="PackedScene" uid="uid://cut6c0ouqpsnx" path="res://duck/duck_killer.tscn" id="23_re7it"]
 [ext_resource type="PackedScene" uid="uid://naudw8kwg75o" path="res://sign/sign.tscn" id="26_d8vpj"]
+[ext_resource type="PackedScene" uid="uid://blgoaqb2g4b1y" path="res://fence/fence_builder.tscn" id="26_twbhu"]
 [ext_resource type="Texture2D" uid="uid://dq54hfigrt850" path="res://arrow.png" id="27_qs5eo"]
 [ext_resource type="PackedScene" uid="uid://bj1yv0uyjaovq" path="res://toilet/toilet.tscn" id="28_qs5eo"]
 [ext_resource type="Script" uid="uid://l4msbl4ot6hr" path="res://step_sound_area.gd" id="29_7dsnv"]
@@ -163,6 +164,15 @@ bounce = 1.0
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jofbb"]
 friction = 0.0
 bounce = 12.65
+
+[sub_resource type="Curve3D" id="Curve3D_7j1mf"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(-5.46286, -3.05176e-05, -0.0565834, 5.46286, 3.05176e-05, 0.0565834, 0.185818, -0.0946894, 0.225765, -2.65297, 0.026123, -0.314613, 2.65297, -0.026123, 0.314613, 10.816, 0.111518, 0.982227, -4.19521, 0, -1.21262, 4.19521, 0, 1.21262, 26.653, 0.111518, 3.58097, 0, 0, 0, 0, 0, 0, 37.7285, 0.111518, 7.0831, -5.21968, 0, -3.0341, 5.21968, 0, 3.0341, 54.2551, 0.111518, 13.3597, -2.08618, 0, -2.06258, 2.08618, 0, 2.06258, 67.669, 0.111518, 22.6651, -1.82457, 0, -2.41631, 1.82457, 0, 2.41631, 73.1411, 0.111518, 28.9689),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+up_vector_enabled = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jofbb"]
 size = Vector3(17.7944, 2.82983, 9.78264)
@@ -591,7 +601,7 @@ transform = Transform3D(-0.124658, 0, -0.9922, 0, 1, 0, 0.9922, 0, -0.124658, 43
 direction = Vector3(15, 20, -0.3)
 
 [node name="fence20" parent="." instance=ExtResource("16_wpkmi")]
-transform = Transform3D(7.02397, 1.86373, -0.638314, 0.552407, 0.405547, 7.26274, 1.89097, -7.04124, 0.24935, 31.8945, -29.0479, 128.637)
+transform = Transform3D(7.02397, 1.86373, -0.638314, 0.552407, 0.405547, 7.26274, 1.89097, -7.04124, 0.24935, 31.9111, -28.978, 128.69)
 
 [node name="fence22" parent="fence20" instance=ExtResource("16_wpkmi")]
 transform = Transform3D(1.13361, -0.436095, 0.321144, 0.409376, 1.17772, 0.154208, -0.354575, -0.0345003, 1.20477, 7.88991, 3.14357, -0.0338964)
@@ -606,6 +616,71 @@ transform = Transform3D(-0.235646, -0.13954, -0.0127958, 0.139957, -0.235606, -0
 
 [node name="fence18" parent="fence20/fence19" instance=ExtResource("16_wpkmi")]
 transform = Transform3D(0.845107, 0.0826729, -0.0381521, -0.0303242, -0.0803093, -0.845656, -0.085855, 0.842149, -0.0768977, -0.41613, 3.1646, -1.14809)
+
+[node name="Path3D" parent="." instance=ExtResource("26_twbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.1793, -9.3061, 40.4596)
+curve = SubResource("Curve3D_7j1mf")
+distance = 4.0
+
+[node name="fence" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.999409, 0.0603916, -0.00605866, -0.0839653, 0.996357, 0.0154413, 0.0294714, -0.0602094, 0.249449, 0.185818, -0.541421, 0.225765)
+
+[node name="@StaticBody3D@88919" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.996111, 0.0753987, -0.0183662, -0.104424, 0.995125, 0.0172789, 0.0808086, -0.0635638, 0.248725, 4.18345, -0.877282, 0.343651)
+
+[node name="@StaticBody3D@88920" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.992821, 0.0905328, -0.0267799, -0.136753, 0.993322, 0.0202782, 0.118518, -0.0715218, 0.247733, 8.1679, -1.29498, 0.666885)
+
+[node name="@StaticBody3D@88921" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.99176, 0.116608, -0.0276693, -0.158764, 0.988858, 0.0263805, 0.128024, -0.0925286, 0.24706, 12.1392, -1.84199, 1.14096)
+
+[node name="@StaticBody3D@88922" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.989216, 0.13553, -0.030578, -0.183403, 0.984778, 0.0314086, 0.146301, -0.108831, 0.246127, 16.1062, -2.47704, 1.65305)
+
+[node name="@StaticBody3D@88923" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.984137, 0.151465, -0.036366, -0.207594, 0.980835, 0.036189, 0.176973, -0.122558, 0.244679, 20.0631, -3.21066, 2.23826)
+
+[node name="@StaticBody3D@88924" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.968132, 0.162398, -0.05345, -0.193707, 0.977682, 0.0416841, 0.248596, -0.133287, 0.240636, 23.9996, -4.04103, 2.94615)
+
+[node name="@StaticBody3D@88925" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.95521, 0.162398, -0.0653693, -0.180588, 0.977682, 0.0432228, 0.295901, -0.133287, 0.2374, 27.8722, -4.81586, 3.94054)
+
+[node name="@StaticBody3D@88926" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.951862, 0.175513, -0.0659227, -0.187679, 0.971413, 0.0507063, 0.306522, -0.159851, 0.235761, 31.693, -5.53821, 5.12414)
+
+[node name="@StaticBody3D@88927" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.953346, 0.18466, -0.0625851, -0.196865, 0.965128, 0.0571897, 0.301565, -0.185549, 0.235186, 35.5004, -6.28893, 6.35023)
+
+[node name="@StaticBody3D@88928" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.952398, 0.187964, -0.0630865, -0.194809, 0.963515, 0.0587176, 0.304771, -0.19055, 0.234675, 39.3138, -7.07639, 7.55649)
+
+[node name="@StaticBody3D@88929" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.943426, 0.192373, -0.0691172, -0.188372, 0.960698, 0.0621839, 0.331456, -0.200129, 0.232069, 43.1234, -7.85562, 8.77558)
+
+[node name="@StaticBody3D@88930" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.929325, 0.193856, -0.0788575, -0.167232, 0.959007, 0.0651106, 0.368973, -0.206702, 0.228127, 46.8971, -8.60911, 10.1014)
+
+[node name="@StaticBody3D@88931" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.898052, 0.198136, -0.0969182, -0.139391, 0.957502, 0.0682385, 0.438633, -0.209598, 0.220114, 50.6144, -9.27804, 11.5773)
+
+[node name="@StaticBody3D@88932" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.855337, 0.20037, -0.11826, -0.092164, 0.955342, 0.0721191, 0.517969, -0.217196, 0.208119, 54.2066, -9.8356, 13.3318)
+
+[node name="@StaticBody3D@88933" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.837961, 0.202595, -0.125368, -0.076992, 0.953111, 0.0745377, 0.545656, -0.224797, 0.203044, 57.628, -10.2043, 15.4037)
+
+[node name="@StaticBody3D@88934" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.818417, 0.202595, -0.133322, -0.0599194, 0.953111, 0.0749787, 0.574504, -0.224797, 0.197746, 60.9798, -10.5122, 17.5863)
+
+[node name="@StaticBody3D@88935" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.780121, 0.208443, -0.146705, -0.0360126, 0.952092, 0.0761956, 0.624885, -0.223767, 0.187541, 64.2535, -10.7519, 19.8843)
+
+[node name="@StaticBody3D@88936" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.691799, 0.232382, -0.171888, 0.0133085, 0.948377, 0.079282, 0.721697, -0.215825, 0.163306, 67.374, -10.896, 22.3839)
+
+[node name="@StaticBody3D@88937" parent="Path3D" instance=ExtResource("16_wpkmi")]
+transform = Transform3D(0.634338, 0.3427, -0.175239, -0.0568409, 0.921504, 0.0950784, 0.772793, -0.182721, 0.150836, 70.1412, -10.8427, 25.2707)
 
 [node name="fence" parent="." instance=ExtResource("16_wpkmi")]
 transform = Transform3D(-4.26989e-08, -0.213985, 0.976837, -9.35359e-09, 0.976837, 0.213985, -1, 0, -4.37114e-08, 16.1936, -11.8115, 73.1539)
@@ -659,7 +734,7 @@ transform = Transform3D(0.987981, 0.0330762, -0.150992, -0.0330762, 0.99945, 0.0
 transform = Transform3D(0.987044, 0.0343339, -0.156733, -0.0343338, 0.999407, 0.00270811, 0.156733, 0.00270809, 0.987638, 14.7365, -0.407217, 0.951108)
 
 [node name="fence18" parent="fence" instance=ExtResource("16_wpkmi")]
-transform = Transform3D(0.945774, -0.0103286, -0.324662, 0.0138684, 0.999867, 0.00859057, 0.32453, -0.0126274, 0.945792, 18.3679, -0.268592, 1.87392)
+transform = Transform3D(0.945774, -0.0103286, -0.324662, 0.0138684, 0.999867, 0.00859057, 0.32453, -0.0126274, 0.945792, 18.3678, -0.259255, 1.8738)
 
 [node name="fence19" parent="fence" instance=ExtResource("16_wpkmi")]
 transform = Transform3D(0.864402, -0.00483771, -0.502779, 0.0142799, 0.999787, 0.0149305, 0.502599, -0.0200857, 0.864287, 21.7878, -0.101798, 3.49822)
